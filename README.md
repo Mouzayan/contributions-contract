@@ -12,5 +12,5 @@ contributions, the `Contribution` contract issues them tokens from the token con
 - The `Contribution` contract stores the addresses of users that donate as well as the amount of
 ETH they’ve donated.
 - It includes a function that will accept a wallet address and return the contributed amount
-of ETH that a wallet address has contributed to the `Contribution` contract.
+of ETH that a wallet address has contributed to the contract
 - Unit testing
