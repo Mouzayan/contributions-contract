@@ -1,15 +1,16 @@
-# Basic Sample Hardhat Project
+# Basic Contributions Smart Contract Project
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+This project uses the Hardhat smart contract framework and inherits from the OpenZeppelin library. 
 
-Try running some of the following tasks:
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+Scope:
+- A token contract that inherits from OpenZeppelin’s ERC20 base contract and extends its
+functionality so that tokens can only be transferred after a particular `_startTime` and before a particular
+`_endTime` 
+- A `Contribution` contract that users can donate ETH to. In return for their ETH-based
+contributions, the `Contribution` contract issues them tokens from the token contract in return
+- The `Contribution` contract stores the addresses of users that donate as well as the amount of
+ETH they’ve donated.
+- It includes a function that will accept a wallet address and return the contributed amount
+of ETH that a wallet address has contributed to the `Contribution` contract.
+- Unit testing
