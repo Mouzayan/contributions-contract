@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract Tyro is ERC20{
     address public founder;
-
+    uint public totalSupply;
     // stores the number of tokens for each address in the mapping
     mapping(address => uint) public balances;
 

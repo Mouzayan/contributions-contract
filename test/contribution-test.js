@@ -10,12 +10,13 @@ const { Contract } = require("ethers");
 describe('Contribution contract', function () {
   before(async function () {
     const Contribution = await ethers.getContractFactory('Contribution');
-    const contribution = await Contribution.deploy(this.name, this.value);
+    const contribution = await Contribution.deploy('0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266', '1000000');
     await contribution.deployed()
   });
 
   beforeEach(async function () {
-    await this.contribution.totalSupply(1000000)
+    let result = await this.contribution.totalSupply()
+    console.log(result)
   })
 
   it('Initial total supply is set to 1000000', async function () {
@@ -25,28 +26,3 @@ describe('Contribution contract', function () {
 
 
 
-// describe("Tyro", () => {
-//   it("Should initialize Tyro contract", async () => {
-//     const TyroFactory = await ethers.getContractFactory("Tyro");
-//     // create an instance of the contract, giving us access to all
-//     // functions & variables
-//     const tyroContract = await TyroFactory.deploy('1000000');
-//     // use the "expect" assertion, and read the totalSupply variable
-//     expect(await tyroContract.totalSupply()).to.equal('1000000');
-//   });
-// });
-
-// describe("Contribution", () => {
-//   it("Should initialize Bored Ape contract", async () => {
-//     const ContributionFactory = await ethers.getContractFactory("Contribution");
-//     // create an instance of the contract, giving us access to all
-//     // functions & variables
-//     const contributionContract = await ContributionFactory.deploy(
-//       "Tyro",
-//       "TYR",
-//       10000
-//     );
-//     // use the "expect" assertion, and read the totalSupply variable
-//     expect(await contributionContract.totalSupply).to.equal(1000000);
-//   });
-// });
