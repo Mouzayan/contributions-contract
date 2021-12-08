@@ -5,7 +5,6 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract Tyro is ERC20{
     address public founder;
-    uint public totalSupply;
     // stores the number of tokens for each address in the mapping
     mapping(address => uint) public balances;
 
@@ -15,6 +14,7 @@ contract Tyro is ERC20{
     constructor(uint totalSupply) ERC20('Tyro', 'TYR') {
         totalSupply = 1000000 * (10 ** decimals());
         founder = msg.sender; // contract deployer is the founder
+        _mint(founder, totalSupply);
         balances[founder] = totalSupply; // initial token supply of founder
     }
 

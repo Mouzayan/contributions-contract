@@ -9,9 +9,11 @@ const { Contract } = require("ethers");
 
 describe('Contribution contract', function () {
   before(async function () {
+    const address = '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512'
     const Contribution = await ethers.getContractFactory('Contribution');
-    const contribution = await Contribution.deploy('0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266', '1000000');
-    await contribution.deployed()
+    // const contribution = await Contribution.attach(address);
+    const contribution = await Contribution.deploy(address, '1000000');
+    await contribution.deployed();
   });
 
   beforeEach(async function () {
@@ -20,7 +22,7 @@ describe('Contribution contract', function () {
   })
 
   it('Initial total supply is set to 1000000', async function () {
-    expect((await this.contribution.totalSupply()).toString()).to.equal('1000000')
+    expect((await contribution.totalSupply()).toString()).to.equal('1000000')
   })
 });
 
